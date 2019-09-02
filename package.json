@@ -1,0 +1,30 @@
+{
+  "name": "riotjs-materializecss",
+  "version": "1.1.0",
+  "description": "Riot.js and Materialize.css with Rollup. Markdown included",
+  "private": true,
+  "scripts": {
+    "start": "npm run watch & npm run server",
+    "build": "rollup -c",
+    "watch": "rollup -c -w 'src/**'",
+    "server": "browser-sync start --files 'dist/*' --server 'dist'"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "marked": "^0.7.0",
+    "material-icons": "^0.3.1",
+    "materialize-css": "^1.0.0-rc.2",
+    "riot": "^4.0.8"
+  },
+  "devDependencies": {
+    "@riotjs/compiler": "^4.2.6",
+    "browser-sync": "^2.26.7",
+    "rollup": "^1.14.3",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-copy": "^3.1.0",
+    "rollup-plugin-node-resolve": "^5.0.1",
+    "rollup-plugin-riot": "^4.0.0",
+    "rollup-plugin-scss": "^1.0.2"
+  },
+  "license": "MIT"
+}

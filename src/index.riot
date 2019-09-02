@@ -1,0 +1,27 @@
+<app>
+  <!-- markup -->
+  <h1>Hai</h1>
+  <raw content={ marked(state.content) } />
+
+  <!-- style -->
+  <style lang="scss">
+    h1 {
+      color: teal;
+    }
+  </style>
+
+  <!-- script -->
+  <script>
+    import marked from "marked";
+    import * as components from "./tags";
+
+    const state = {
+      content: `this content writen with **markdown**`
+    };
+    export default {
+      components,
+      state,
+      marked,
+    };
+  </script>
+</app>

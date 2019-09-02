@@ -1,0 +1,9 @@
+body {
+  color: #888;
+}
+
+#root {
+  & strong {
+    font-weight: bolder;
+  }
+}

@@ -1,0 +1,17 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "node_modules": true,
+        ".gitignore": true,
+        ".vscode": true,
+        "*.json": true,
+        "rollup.config.js": true,
+        "*.md": true,
+        "*.js": true
+    },
+    "explorerExclude.backup": null
+}

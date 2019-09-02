@@ -1,0 +1,13 @@
+<raw>
+  <script>
+    export default {
+      onMounted(props, state) {
+        this.root.innerHTML = props.content || '';
+        console.log(props.nah)
+      },
+      onUpdated(props, state) {
+        this.root.innerHTML = props.content || '';
+      }
+    };
+  </script>
+</raw>
