@@ -1,27 +1,104 @@
 <app>
-  <!-- markup -->
-  <h1>Hai</h1>
-  <raw content={ marked(state.content) } />
+  <div id="action" class="row">
+    <div class="col s12 m4">
+      <button class="btn grey lighten-4 waves-effect btn-small btn-flat right"
+        onclick="{ev => {M.toast({html: '<i class=\'material-icons left teal-text\'>check</i> Markdown Copied', classes: 'grey lighten-4 black-text'})}}">
+        MD
+        <i class="material-icons right teal-text">content_copy</i>
+      </button>
+    </div>
+    <div class="col s12 m8">
+      <button class="btn grey lighten-4 waves-effect btn-small btn-flat"
+        onclick="{ev => {M.toast({html: '<i class=\'material-icons left teal-text\'>check</i> HTML Copied', classes: 'grey lighten-4 black-text'})}}">
+        HTML
+        <i class="material-icons right teal-text">content_copy</i>
+      </button>
+    </div>
+  </div>
+  <div id="editor" class="row">
+    <div class="col s12 m4">
+      <div id="editable" onclick="{ev=> document.querySelector('code').focus()}">
+        <code onkeyup="{ev=> change(ev)}" contenteditable></code>
+      </div>
+    </div>
+    <div id="preview" class="col s12 m8">
+      <raw content={ marked(state.content) } />
+    </div>
+  </div>
 
-  <!-- style -->
   <style lang="scss">
-    h1 {
-      color: teal;
+    #editor {
+      display: flex;
+      align-items: stretch;
+      padding-top: 0px;
+    }
+
+    #editable {
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      border: 2px dashed #eee;
+    }
+
+    #editable code {
+      width: 100%;
+      padding: 0;
+    }
+
+    #editable code:focus {
+      outline: none;
+    }
+
+    #editable:focus-within {
+      border-color: #ddd;
+    }
+
+    #preview {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    #action {
+      padding-bottom: 0;
+    }
+
+    .row {
+      padding: 40px 0;
+    }
+
+    .btn {
+      padding: 0 10px;
+    }
+
+    .mb {
+      margin-bottom: 10px;
     }
   </style>
 
-  <!-- script -->
   <script>
     import marked from "marked";
     import * as components from "./tags";
-
     const state = {
-      content: `this content writen with **markdown**`
+      content: `
+      **Wellcome to,**
+      ## Markdown Editor
+      write your markdown inside left editable block
+      `
     };
+    const action = {
+
+    }
     export default {
       components,
       state,
       marked,
+      document,
+      M,
+      change(ev) {
+        this.update({
+          content: ev.target.innerText
+        })
+      }
     };
   </script>
 </app>
